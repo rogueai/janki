@@ -5,7 +5,6 @@
 	<persistence-unit name="janki-manager" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- <jta-data-source>java:/DefaultDS</jta-data-source> -->
-
 		<!-- JAnki JPA entities
 		<class>com.rogueai.janki.core.persistence.entity.Card</class>
 		<class>com.rogueai.janki.core.persistence.entity.Collection</class>
@@ -13,11 +12,12 @@
 		<class>com.rogueai.janki.core.persistence.entity.GraveId</class>
 		<class>com.rogueai.janki.core.persistence.entity.Note</class>
 		<class>com.rogueai.janki.core.persistence.entity.Revlog</class>
- -->
+ 		-->
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 
 		<properties>
 			<property name="hibernate.dialect" value="com.rogueai.janki.core.persistence.dialect.SQLiteDialect" />
+			<!-- custom OSGi resource scanner -->
 			<property name="hibernate.ejb.resource_scanner" value="com.rogueai.janki.core.persistence.jpa.scanner.OsgiResourceScanner"/>
 						
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
