@@ -3,15 +3,10 @@ package com.rogueai.janki.core.persistence.jpa.dao.factory.impl;
 import com.rogueai.janki.core.persistence.jpa.dao.factory.DaoFactory;
 import com.rogueai.janki.core.persistence.jpa.dao.impl.CardDao;
 import com.rogueai.janki.core.persistence.jpa.dao.impl.CollectionDao;
-import com.rogueai.janki.core.persistence.jpa.dao.impl.DeckDao;
 import com.rogueai.janki.core.persistence.jpa.dao.impl.GenericDao;
 import com.rogueai.janki.core.persistence.jpa.dao.impl.GraveDao;
-import com.rogueai.janki.core.persistence.jpa.dao.impl.ModelDao;
 import com.rogueai.janki.core.persistence.jpa.dao.impl.NoteDao;
 import com.rogueai.janki.core.persistence.jpa.dao.impl.RevlogDao;
-import com.rogueai.janki.core.persistence.jpa.dao.impl.SchedDao;
-import com.rogueai.janki.core.persistence.jpa.dao.impl.StatDao;
-import com.rogueai.janki.core.persistence.jpa.dao.impl.TagDao;
 import com.rogueai.janki.core.persistence.util.HibernateUtil;
 
 /**
@@ -42,18 +37,8 @@ public class HibernateDaoFactory extends DaoFactory {
 	}
 
 	@Override
-	public DeckDao getDeckDao() {
-		return instantiateDao(DeckDao.class);
-	}
-
-	@Override
 	public GraveDao getGraveDao() {
 		return instantiateDao(GraveDao.class);
-	}
-
-	@Override
-	public ModelDao getModelDao() {
-		return instantiateDao(ModelDao.class);
 	}
 
 	@Override
@@ -64,21 +49,6 @@ public class HibernateDaoFactory extends DaoFactory {
 	@Override
 	public RevlogDao getRevlogDao() {
 		return instantiateDao(RevlogDao.class);
-	}
-
-	@Override
-	public SchedDao getSchedDao() {
-		return instantiateDao(SchedDao.class);
-	}
-
-	@Override
-	public StatDao getStatDao() {
-		return instantiateDao(StatDao.class);
-	}
-
-	@Override
-	public TagDao getTagDao() {
-		return instantiateDao(TagDao.class);
 	}
 
 	// Inline concrete DAO implementations with no business-related data access
