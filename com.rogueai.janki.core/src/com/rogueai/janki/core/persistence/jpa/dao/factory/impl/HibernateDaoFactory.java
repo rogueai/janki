@@ -24,7 +24,7 @@ public class HibernateDaoFactory extends DaoFactory {
 	private <DAO extends GenericDao<?, Long>> DAO instantiateDao(Class<DAO> daoClass) {
 		try {
 			DAO dao = daoClass.newInstance();
-			dao.setEntityManager(HibernateUtil.getSesssionFactory());
+			dao.setEntityManager(HibernateUtil.getEntityManager());
 			return dao;
 		} catch (Exception ex) {
 			throw new RuntimeException("Can not instantiate DAO: " + daoClass, ex);

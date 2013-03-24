@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.hibernate.ejb.packaging.NamedInputStream;
 import org.hibernate.ejb.packaging.NativeScanner;
 import org.osgi.framework.Bundle;
@@ -45,22 +47,19 @@ public class OsgiResourceScanner extends NativeScanner {
 		}
 		if (jarBundle != null) {
 			BundleWiring bundleWiring = jarBundle.adapt(BundleWiring.class);
-			Collection<String> res = bundleWiring
-					.listResources("/", "*.class", BundleWiring.LISTRESOURCES_LOCAL | BundleWiring.LISTRESOURCES_RECURSE);
-			for (String name : res) {
+			Collection<URL> res = bundleWiring.findEntries("/", "*.class", BundleWiring.LISTRESOURCES_LOCAL | BundleWiring.LISTRESOURCES_RECURSE);
+			for (URL url : res) {
 				try {
-					name = name.replaceAll("\\/", ".");
-					if (name.startsWith("bin.")) {
-						name = name.substring("bin.".length());
-					}
-					if (name.endsWith(".class")) {
-						name = name.substring(0, name.lastIndexOf(".class"));
-					}
-					Class<?> clazz = bundleWiring.getClassLoader().loadClass(name);
-					for (Annotation ann : clazz.getAnnotations()) {
-						if (annotationsToLookFor.contains(ann.annotationType())) {
-							classesInJar.add(clazz);
-							break;
+					IPath path = new Path(url.getPath());
+					if (path.segment(0).equals("bin") && path.lastSegment().endsWith(".class")) {
+						path = path.removeFirstSegments(1);
+						String name = path.removeFileExtension().toString().replaceAll("\\/", ".");
+						Class<?> clazz = bundleWiring.getClassLoader().loadClass(name);
+						for (Annotation ann : clazz.getAnnotations()) {
+							if (annotationsToLookFor.contains(ann.annotationType())) {
+								classesInJar.add(clazz);
+								break;
+							}
 						}
 					}
 					System.out.println();

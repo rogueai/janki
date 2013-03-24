@@ -2,9 +2,7 @@ package com.rogueai.janki.core;
 
 import java.util.List;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
-import org.hibernate.Transaction;
 import org.osgi.framework.BundleContext;
 
 import com.rogueai.janki.core.persistence.jpa.dao.factory.DaoFactory;
@@ -22,10 +20,10 @@ public class JAnkiCorePlugin extends Plugin {
 	public void start(BundleContext bundleContext) throws Exception {
 		JAnkiCorePlugin.context = bundleContext;
 		// initialize hibernate session
-		Transaction tx = HibernateUtil.getSesssionFactory().getCurrentSession().beginTransaction();
+		HibernateUtil.getEntityManager().getTransaction().begin();
 		DaoFactory instance = DaoFactory.instance(DaoFactory.HIBERNATE);
 		List<Card> cards = instance.getCardDao().findAll();
-		tx.commit(); 
+		HibernateUtil.getEntityManager().getTransaction().commit();
 		System.out.println();
 	}
 

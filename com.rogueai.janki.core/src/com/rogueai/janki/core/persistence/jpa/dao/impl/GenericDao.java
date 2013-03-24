@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
+
 import org.hibernate.Criteria;
-import org.hibernate.LockOptions;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 
@@ -21,18 +22,18 @@ import com.rogueai.janki.core.persistence.jpa.dao.IGenericDao;
 public abstract class GenericDao<T, ID extends Serializable> implements IGenericDao<T, ID> {
 
 	private Class<T> _persistentClass;
-	private SessionFactory _entityManager;
+	private EntityManager _entityManager;
 
 	@SuppressWarnings("unchecked")
 	public GenericDao() {
 		this._persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 
-	public void setEntityManager(SessionFactory entityManager) {
+	public void setEntityManager(EntityManager entityManager) {
 		this._entityManager = entityManager;
 	}
 
-	protected SessionFactory getEntityManager() {
+	protected EntityManager getEntityManager() {
 		if (_entityManager == null)
 			throw new IllegalStateException("EntityManager has not been set on DAO before usage");
 		return _entityManager;
@@ -42,13 +43,12 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 		return _persistentClass;
 	}
 
-	@SuppressWarnings("unchecked")
 	public T findById(ID id, boolean lock) {
 		T entity;
 		if (lock)
-			entity = (T) getEntityManager().getCurrentSession().load(getPersistentClass(), id, LockOptions.UPGRADE);
+			entity = (T) getEntityManager().find(getPersistentClass(), id, LockModeType.PESSIMISTIC_WRITE);
 		else
-			entity = (T) getEntityManager().getCurrentSession().load(getPersistentClass(), id);
+			entity = (T) getEntityManager().find(getPersistentClass(), id);
 
 		return entity;
 	}
@@ -57,9 +57,13 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 		return findByCriteria();
 	}
 
+	// TODO: methods below are not very generic: they still rely on hibernate
+	// specific Criteria API, we should find a similar way to do it in pure
+	// JPA CriteriaQuery
+
 	@SuppressWarnings("unchecked")
 	public List<T> findByExample(T exampleInstance, String[] excludeProperty) {
-		Session session = getEntityManager().getCurrentSession();
+		Session session = (Session) getEntityManager().getDelegate();
 		Criteria crit = session.createCriteria(getPersistentClass());
 		Example example = Example.create(exampleInstance);
 		for (String exclude : excludeProperty) {
@@ -71,7 +75,7 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 
 	@SuppressWarnings("unchecked")
 	protected List<T> findByCriteria(Criterion... criterion) {
-		Session session = getEntityManager().getCurrentSession();
+		Session session = (Session) getEntityManager().getDelegate();
 		Criteria crit = session.createCriteria(getPersistentClass());
 		for (Criterion c : criterion) {
 			crit.add(c);
@@ -80,20 +84,20 @@ public abstract class GenericDao<T, ID extends Serializable> implements IGeneric
 	}
 
 	public T makePersistent(T entity) {
-		getEntityManager().getCurrentSession().saveOrUpdate(entity);
+		getEntityManager().merge(entity);
 		return entity;
 	}
 
 	public void makeTransient(T entity) {
-		getEntityManager().getCurrentSession().delete(entity);
+		getEntityManager().remove(entity);
 	}
 
 	public void flush() {
-		getEntityManager().getCurrentSession().flush();
+		getEntityManager().flush();
 	}
 
 	public void clear() {
-		getEntityManager().getCurrentSession().clear();
+		getEntityManager().clear();
 	}
 
 }
