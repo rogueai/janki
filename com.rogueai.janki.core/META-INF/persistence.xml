@@ -19,7 +19,7 @@
 			<property name="hibernate.dialect" value="com.rogueai.janki.core.persistence.dialect.SQLiteDialect" />
 			<!-- custom OSGi resource scanner -->
 			<property name="hibernate.ejb.resource_scanner" value="com.rogueai.janki.core.persistence.jpa.scanner.OsgiResourceScanner"/>
-						
+			
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:collection.anki2" />
 		</properties>
