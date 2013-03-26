@@ -2,6 +2,8 @@ package com.rogueai.janki.core.persistence.jpa.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.rogueai.janki.core.persistence.jpa.dao.IRevlogDao;
 import com.rogueai.janki.core.persistence.jpa.entity.Revlog;
 
@@ -10,6 +12,7 @@ import com.rogueai.janki.core.persistence.jpa.entity.Revlog;
  * @author Massimo Zugno
  * 
  */
+@Repository
 public class RevlogDao extends GenericDao<Revlog, Long> implements IRevlogDao {
 
 	@Override

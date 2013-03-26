@@ -5,6 +5,8 @@ package com.rogueai.janki.core.persistence.jpa.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.rogueai.janki.core.persistence.jpa.dao.ICardDao;
 import com.rogueai.janki.core.persistence.jpa.entity.Card;
 
@@ -12,6 +14,7 @@ import com.rogueai.janki.core.persistence.jpa.entity.Card;
  * @author Massimo Zugno
  * 
  */
+@Repository
 public class CardDao extends GenericDao<Card, Long> implements ICardDao {
 
 	@Override

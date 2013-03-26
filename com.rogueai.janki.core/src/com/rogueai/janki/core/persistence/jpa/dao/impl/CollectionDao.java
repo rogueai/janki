@@ -2,6 +2,8 @@ package com.rogueai.janki.core.persistence.jpa.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.rogueai.janki.core.persistence.jpa.dao.ICollectionDao;
 import com.rogueai.janki.core.persistence.jpa.entity.Collection;
 
@@ -10,6 +12,7 @@ import com.rogueai.janki.core.persistence.jpa.entity.Collection;
  * @author Massimo Zugno
  * 
  */
+@Repository
 public class CollectionDao extends GenericDao<Collection, Long> implements ICollectionDao {
 
 	@Override

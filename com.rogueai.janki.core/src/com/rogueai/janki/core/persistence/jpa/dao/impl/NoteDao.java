@@ -2,6 +2,8 @@ package com.rogueai.janki.core.persistence.jpa.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.rogueai.janki.core.persistence.jpa.dao.INoteDao;
 import com.rogueai.janki.core.persistence.jpa.entity.Note;
 
@@ -10,6 +12,7 @@ import com.rogueai.janki.core.persistence.jpa.entity.Note;
  * @author Massimo Zugno
  *
  */
+@Repository
 public class NoteDao extends GenericDao<Note, Long> implements INoteDao {
 
 	@Override

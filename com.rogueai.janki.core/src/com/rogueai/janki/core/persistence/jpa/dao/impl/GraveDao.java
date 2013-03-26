@@ -2,6 +2,8 @@ package com.rogueai.janki.core.persistence.jpa.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.rogueai.janki.core.persistence.jpa.dao.IGraveDao;
 import com.rogueai.janki.core.persistence.jpa.entity.Grave;
 
@@ -10,6 +12,7 @@ import com.rogueai.janki.core.persistence.jpa.entity.Grave;
  * @author Massimo Zugno
  * 
  */
+@Repository
 public class GraveDao extends GenericDao<Grave, Long> implements IGraveDao {
 
 	@Override

@@ -22,13 +22,6 @@ public class HibernateUtil {
 
 	private static EntityManager createEntityManager() {
 		try {
-			// Create the SessionFactory from hibernate.cfg.xml
-			// Configuration cfg = new AnnotationConfiguration();
-			// URL cfgUrl = bundle.getEntry("/hibernate.cfg.xml");
-			// cfg.configure(FileLocator.toFileURL(cfgUrl));
-			// cfg.setProperty("hibernate.connection.url", connUrl);
-			// SessionFactory sf = cfg.buildSessionFactory();
-
 			Bundle bundle = JAnkiCorePlugin.getContext().getBundle();
 			URL ankiDbUrl = bundle.getEntry("/collection.anki2");
 			String connUrl = "jdbc:sqlite:" + FileLocator.toFileURL(ankiDbUrl).getFile();
