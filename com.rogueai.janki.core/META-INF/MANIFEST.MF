@@ -27,3 +27,8 @@ Bundle-ClassPath: .,
  lib/jackson-databind-2.2.2.jar,
  lib/slf4j-api-1.5.8.jar,
  lib/slf4j-log4j12-1.7.2.jar
+Export-Package: com.fasterxml.jackson.databind,
+ com.j256.ormlite.dao,
+ com.rogueai.janki.core.persistence.dao,
+ com.rogueai.janki.core.persistence.dao.factory,
+ com.rogueai.janki.core.persistence.entity
