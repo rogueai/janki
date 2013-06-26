@@ -5,10 +5,14 @@ import java.util.List;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
-import com.rogueai.janki.core.persistence.jpa.dao.factory.DaoFactory;
-import com.rogueai.janki.core.persistence.jpa.entity.Card;
-import com.rogueai.janki.core.persistence.util.HibernateUtil;
+import com.rogueai.janki.core.persistence.dao.factory.DaoFactory;
+import com.rogueai.janki.core.persistence.entity.Collection;
 
+/**
+ * 
+ * @author matsuleode
+ *
+ */
 public class JAnkiCorePlugin extends Plugin {
 
 	private static BundleContext context;
@@ -19,11 +23,10 @@ public class JAnkiCorePlugin extends Plugin {
 
 	public void start(BundleContext bundleContext) throws Exception {
 		JAnkiCorePlugin.context = bundleContext;
-		// initialize hibernate session
-		HibernateUtil.getEntityManager().getTransaction().begin();
-		DaoFactory instance = DaoFactory.instance(DaoFactory.HIBERNATE);
-		List<Card> cards = instance.getCardDao().findAll();
-		HibernateUtil.getEntityManager().getTransaction().commit();
+
+		// TODO @matsu testdao factory
+		DaoFactory instance = DaoFactory.instance(DaoFactory.ORM_LITE);
+		List<Collection> collections = instance.getCollectionDao().queryForAll();
 		System.out.println();
 	}
 
