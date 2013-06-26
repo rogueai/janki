@@ -1,66 +1,31 @@
-package com.rogueai.janki.core.persistence.entity;
+package com.rogueai.janki.core.persistence.json;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.j256.ormlite.field.FieldType;
 import com.j256.ormlite.field.SqlType;
 import com.j256.ormlite.field.types.LongStringType;
 import com.j256.ormlite.support.DatabaseResults;
+import com.rogueai.janki.core.persistence.json.utils.JSonUtil;
 
 /**
+ * Json fields in Anki are persisted as {@link SqlType#LONG_STRING} (Text).
+ * Hbm2Java generatess something like
+ * 
+ * <pre>
+ * @DatabaseField(columnName = "models", canBeNull = false, width = 2000000000)
+ * </pre>
+ * 
  * 
  * @author matsuleode
- *
+ * 
  */
 public class JsonPersister extends LongStringType {
-
-	private static final class ReqDeserializer extends JsonDeserializer<Req> {
-
-		@Override
-		public Req deserialize(JsonParser parser, DeserializationContext context) throws IOException, JsonProcessingException {
-			try {
-				// this should have EXACTLY 3 elements:
-				// [0] : ord
-				// [1] : type
-				// [2] : int[]
-				ObjectCodec oc = parser.getCodec();
-				JsonNode node = oc.readTree(parser);
-				Req req = new Req();
-				req.setOrd(node.get(0).asInt());
-				req.setType(node.get(1).asText());
-				ArrayNode fldsArray = (ArrayNode) node.get(2);
-				Iterator<JsonNode> fldsIt = fldsArray.iterator();
-				List<Integer> flds = new ArrayList<Integer>();
-				while (fldsIt.hasNext()) {
-					JsonNode jsonNode = (JsonNode) fldsIt.next();
-					flds.add(jsonNode.asInt());
-				}
-				return req;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
-
-	}
 
 	private static final JsonPersister singleTon = new JsonPersister();
 
@@ -85,29 +50,29 @@ public class JsonPersister extends LongStringType {
 	public Object sqlArgToJava(FieldType fieldType, Object sqlArg, int columnPos) throws SQLException {
 		try {
 			String json = (String) sqlArg;
-			ObjectMapper mapper = new ObjectMapper();
-			// mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
-			// true);
-			ReqDeserializer deserializer = new ReqDeserializer();
-			SimpleModule module = new SimpleModule("JAnkiDeserializer", new Version(1, 0, 0, "", "", ""));
-
-			module.addDeserializer(Req.class, deserializer);
-			// module.addDeserializer(Model.class, new ModelDeserializer());
-
-			mapper.registerModule(module);
-
-			Map<String, Model> models = mapper.readValue(json, new TypeReference<Map<String, Model>>() {
-			});
 			
-			return models;
+			String tableName = fieldType.getTableName();
+			if (tableName.equals("col")) {
+				String columnName = fieldType.getColumnName();
+				if (columnName.equals("models")) {
+					Map<String, Model> models = JSonUtil.MAPPER.readValue(json, new TypeReference<Map<String, Model>>() {
+					});
+					// TODO: ideally we should try to get a List of models,
+					// since the "id" is itself used as map key, but it might
+					// come handy
+					return models;
+				}
+				if (columnName.equals("conf")) {
+					Conf conf = JSonUtil.MAPPER.readValue(json, Conf.class);
+					return conf;
+				}
+				if (columnName.equals("dconf")) {
+					Map<String, Dconf> dconf = JSonUtil.MAPPER.readValue(json, new TypeReference<Map<String, Dconf>>() {
+					});
+					return dconf;
+				}
+			}
 
-			// TODO: @matsu HACK we should use a proper deserializer here
-			// List<Model> models = new ArrayList<Model>();
-			// for (Entry<String, Model> entry : modelsMap.entrySet()) {
-			// Model model = entry.getValue();
-			// model.setId(Long.valueOf(entry.getKey()));
-			// models.add(model);
-			// }
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -115,7 +80,6 @@ public class JsonPersister extends LongStringType {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return super.sqlArgToJava(fieldType, sqlArg, columnPos);
 	}
 

@@ -1,9 +1,10 @@
-package com.rogueai.janki.core.persistence.entity;
+package com.rogueai.janki.core.persistence.json;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.rogueai.janki.core.persistence.entity.Collection;
 
 /**
  * Represents an Anki Model. Note that this is not the exact equivalent of
@@ -80,46 +81,32 @@ public class Model {
 	 * clients
 	 */
 	@Deprecated
-	@JsonProperty("vers")
 	private int[] vers = new int[0];
 
-	@JsonProperty("id")
 	private long id = 0;
 
-	@JsonProperty("name")
 	private String name;
 
-	@JsonProperty("sortf")
 	private int sortf;
 
-	@JsonProperty("did")
 	private long did;
 
-	@JsonProperty("latexPre")
 	private String latexPre;
 
-	@JsonProperty("latexPost")
 	private String latexPost;
 
-	@JsonProperty("mod")
 	private int mod;
 
-	@JsonProperty("usn")
 	private int usn;
 
-	@JsonProperty("type")
 	private int type;
 
-	@JsonProperty("css")
 	private String css;
 
-	@JsonProperty("flds")
 	private List<Field> flds = new ArrayList<Field>();
 
-	@JsonProperty("tmpls")
 	private List<Template> tmpls = new ArrayList<Template>();
 
-	@JsonProperty("tags")
 	private List<String> tags = new ArrayList<String>();
 
 	@JsonProperty("req")

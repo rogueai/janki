@@ -1,4 +1,4 @@
-package com.rogueai.janki.core.persistence.entity;
+package com.rogueai.janki.core.persistence.json;
 
 import java.util.ArrayList;
 import java.util.List;

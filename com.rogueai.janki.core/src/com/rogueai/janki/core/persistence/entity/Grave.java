@@ -21,7 +21,12 @@ public class Grave implements java.io.Serializable {
 	@DatabaseField(columnName = "type", canBeNull = false)
 	private int type;
 
+	public Grave(){
+		super();
+	}
+	
 	public Grave(int usn, int oid, int type) {
+		this();
 		this.usn = usn;
 		this.oid = oid;
 		this.type = type;
