@@ -1,6 +1,9 @@
 package com.rogueai.janki.core.persistence.service.impl;
 
-import com.rogueai.janki.core.persistence.dao.impl.NoteDao;
+import java.sql.SQLException;
+
+import com.rogueai.janki.core.persistence.dao.INoteDao;
+import com.rogueai.janki.core.persistence.dao.factory.DaoFactory;
 
 /**
  * 
@@ -9,6 +12,14 @@ import com.rogueai.janki.core.persistence.dao.impl.NoteDao;
  */
 public class NoteService extends CardService {
 
-	private NoteDao noteDao;
+	private INoteDao noteDao = DaoFactory.INSTANCE.getNoteDao();
+
+	public NoteService() throws SQLException {
+		super();
+	}
+
+	protected INoteDao getNoteDao() {
+		return noteDao;
+	}
 
 }

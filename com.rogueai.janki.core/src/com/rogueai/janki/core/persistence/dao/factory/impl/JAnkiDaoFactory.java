@@ -45,7 +45,7 @@ public class JAnkiDaoFactory extends DaoFactory {
 	/*
 	 * TODO: this is getting the db from the eclipse installation folder
 	 */
-	private static final String DB_URL = "jdbc:sqlite:collection.anki2";
+	private static final String DB_URL = "jdbc:sqlite:/home/zuegg/collection.anki2";
 
 	private ConnectionSource connectionSource;
 

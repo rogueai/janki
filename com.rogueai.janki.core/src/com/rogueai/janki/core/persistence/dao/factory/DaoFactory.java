@@ -2,12 +2,12 @@ package com.rogueai.janki.core.persistence.dao.factory;
 
 import java.sql.SQLException;
 
+import com.rogueai.janki.core.persistence.dao.ICardDao;
+import com.rogueai.janki.core.persistence.dao.ICollectionDao;
+import com.rogueai.janki.core.persistence.dao.IGraveDao;
+import com.rogueai.janki.core.persistence.dao.INoteDao;
+import com.rogueai.janki.core.persistence.dao.IRevlogDao;
 import com.rogueai.janki.core.persistence.dao.factory.impl.JAnkiDaoFactory;
-import com.rogueai.janki.core.persistence.dao.impl.CardDao;
-import com.rogueai.janki.core.persistence.dao.impl.CollectionDao;
-import com.rogueai.janki.core.persistence.dao.impl.GraveDao;
-import com.rogueai.janki.core.persistence.dao.impl.NoteDao;
-import com.rogueai.janki.core.persistence.dao.impl.RevlogDao;
 
 /**
  * 
@@ -17,11 +17,15 @@ import com.rogueai.janki.core.persistence.dao.impl.RevlogDao;
 public abstract class DaoFactory {
 
 	public static final Class<? extends DaoFactory> ORM_LITE = JAnkiDaoFactory.class;
+	public static final DaoFactory INSTANCE;
+	static {
+		INSTANCE = instance(ORM_LITE);
+	}
 
 	/**
 	 * Factory method for instantiation of concrete factories.
 	 */
-	public static DaoFactory instance(Class<? extends DaoFactory> factory) {
+	private static DaoFactory instance(Class<? extends DaoFactory> factory) {
 		try {
 			return factory.newInstance();
 		} catch (Exception ex) {
@@ -29,14 +33,14 @@ public abstract class DaoFactory {
 		}
 	}
 
-	public abstract CardDao getCardDao() throws SQLException;
+	public abstract ICardDao getCardDao() throws SQLException;
 
-	public abstract CollectionDao getCollectionDao() throws SQLException;
+	public abstract ICollectionDao getCollectionDao() throws SQLException;
 
-	public abstract GraveDao getGraveDao() throws SQLException;
+	public abstract IGraveDao getGraveDao() throws SQLException;
 
-	public abstract NoteDao getNoteDao() throws SQLException;
+	public abstract INoteDao getNoteDao() throws SQLException;
 
-	public abstract RevlogDao getRevlogDao() throws SQLException;
+	public abstract IRevlogDao getRevlogDao() throws SQLException;
 
 }

@@ -1,5 +1,6 @@
 package com.rogueai.janki.core.persistence.service.impl;
 
+import java.sql.SQLException;
 
 /**
  * 
@@ -7,5 +8,9 @@ package com.rogueai.janki.core.persistence.service.impl;
  * 
  */
 public class DeckService extends CardService {
+
+	public DeckService() throws SQLException {
+		super();
+	}
 
 }

@@ -1,14 +1,16 @@
 package com.rogueai.janki.core.persistence.service.impl;
 
-import com.rogueai.janki.core.persistence.dao.impl.NoteDao;
+import java.sql.SQLException;
 
 /**
  * 
  * @author matsuleode
  * 
  */
-public class ModelService extends CardService {
+public class ModelService extends NoteService {
 
-	private NoteDao noteDao;
+	public ModelService() throws SQLException {
+		super();
+	}
 
 }
