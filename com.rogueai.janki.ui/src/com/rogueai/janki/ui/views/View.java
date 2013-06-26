@@ -3,6 +3,7 @@ package com.rogueai.janki.ui.views;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -26,6 +27,14 @@ public class View extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		
+		Composite container = new Composite(parent, SWT.BORDER);
+		container.setLayout(GridLayoutFactory.swtDefaults().numColumns(5).create());
+		
+		createButtons(container);
+	}
+
+	private void createButtons(Composite parent) {
 		Button colButton = new Button(parent, SWT.PUSH);
 		colButton.setText("Load 'col'");
 		colButton.addSelectionListener(new SelectionAdapter() {
@@ -95,7 +104,6 @@ public class View extends ViewPart {
 				}
 			}
 		});
-
 	}
 
 	@Override
