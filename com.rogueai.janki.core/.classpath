@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-log4j12-1.7.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-annotations-2.2.2.jar" sourcepath="/home/zuegg/tools/jackson/jackson-annotations-2.2.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-core-2.2.2.jar" sourcepath="/home/zuegg/tools/jackson/jackson-core-2.2.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-databind-2.2.2.jar" sourcepath="/home/zuegg/tools/jackson/jackson-databind-2.2.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.persistence-2.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.persistence-sources-2.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ormlite-android-4.45.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ormlite-core-4.45.jar" sourcepath="/home/zuegg/tools/ormlite/ormlite-core-4.45-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ormlite-jdbc-4.45.jar" sourcepath="/home/zuegg/tools/ormlite/ormlite-jdbc-4.45-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

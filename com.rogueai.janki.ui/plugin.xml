@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="com.rogueai.janki.ui.views.View"
+            id="com.rogueai.janki.ui.views.View"
+            name="JAnki Test View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
