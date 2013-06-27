@@ -1,19 +1,67 @@
 package com.rogueai.janki.core.persistence.json;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <pre>
+ * defaultConf = {
+ *     # review options
+ *     'activeDecks': [1],
+ *     'curDeck': 1,
+ *     'newSpread': NEW_CARDS_DISTRIBUTE,
+ *     'collapseTime': 1200,
+ *     'timeLim': 0,
+ *     'estTimes': True,
+ *     'dueCounts': True,
+ *     # other config
+ *     'curModel': None,
+ *     'nextPos': 1,
+ *     'sortType': "noteFld",
+ *     'sortBackwards': False,
+ *     'addToCur': True, # add new to currently selected deck?
+ * }
+ * </pre>
  * 
  * @author matsuleode
  * 
  */
 public class Conf {
 
+	public static final Conf DEFAULT_CONF;
+	static {
+		DEFAULT_CONF = new Conf();
+		// review optionsF
+		List<Long> activeDecks = new ArrayList<Long>();
+		activeDecks.add(1L);
+		DEFAULT_CONF.activeDecks = activeDecks;
+		DEFAULT_CONF.curDeck = 1;
+		DEFAULT_CONF.newSpread = Conf.NEW_CARDS_DISTRIBUTE;
+		DEFAULT_CONF.collapseTime = 1200;
+		DEFAULT_CONF.timeLim = 0;
+		DEFAULT_CONF.estTimes = true;
+		DEFAULT_CONF.dueCounts = true;
+		// other config
+		DEFAULT_CONF.curModel = null;
+		DEFAULT_CONF.nextPos = 1;
+		DEFAULT_CONF.sortType = "noteFld";
+		DEFAULT_CONF.sortBackwards = false;
+		DEFAULT_CONF.addToCur = true;
+	}
+
+	// whether new cards should be mixed with reviews, or shown first or last
+	public static final int NEW_CARDS_DISTRIBUTE = 0;
+
+	public static final int NEW_CARDS_LAST = 1;
+
+	public static final int NEW_CARDS_FIRST = 2;
+
+	// END-STATIC
+
 	private long nextPos;
 
 	private boolean estTimes;
 
-	// TODO @matsu: deserialize List<Deck>
 	private List<Long> activeDecks;
 
 	private String sortType;
@@ -24,7 +72,6 @@ public class Conf {
 
 	private boolean addToCur;
 
-	// TODO @matsu: deserialize Deck
 	private long curDeck;
 
 	private long newSpread;
@@ -33,8 +80,7 @@ public class Conf {
 
 	private boolean dueCounts;
 
-	// TODO @matsu: deserialize Model
-	private long curModel;
+	private Long curModel;
 
 	private long collapseTime;
 
@@ -126,11 +172,11 @@ public class Conf {
 		this.dueCounts = dueCounts;
 	}
 
-	public long getCurModel() {
+	public Long getCurModel() {
 		return curModel;
 	}
 
-	public void setCurModel(long curModel) {
+	public void setCurModel(Long curModel) {
 		this.curModel = curModel;
 	}
 

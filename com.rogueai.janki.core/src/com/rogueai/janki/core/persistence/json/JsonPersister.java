@@ -50,7 +50,7 @@ public class JsonPersister extends LongStringType {
 	public Object sqlArgToJava(FieldType fieldType, Object sqlArg, int columnPos) throws SQLException {
 		try {
 			String json = (String) sqlArg;
-			
+
 			String tableName = fieldType.getTableName();
 			if (tableName.equals("col")) {
 				String columnName = fieldType.getColumnName();
@@ -70,6 +70,15 @@ public class JsonPersister extends LongStringType {
 					Map<String, Dconf> dconf = JSonUtil.MAPPER.readValue(json, new TypeReference<Map<String, Dconf>>() {
 					});
 					return dconf;
+				}
+				if (columnName.equals("tags")) {
+					Tags tags = JSonUtil.MAPPER.readValue(json, Tags.class);
+					return tags;
+				}
+				if (columnName.equals("decks")) {
+					Map<String, Deck> decks = JSonUtil.MAPPER.readValue(json, new TypeReference<Map<String, Deck>>() {
+					});
+					return decks;
 				}
 			}
 
