@@ -11,4 +11,4 @@ Some of the feature the will be implemented include:
 - enhanced addon development, discovery and install
 - easier extensibility
 
-The project is based on Eclipse, in order to easily implement some of the core feature such as great extensibility and software/addons updates
+The project is based on Eclipse, in order to easily implement some of the core features such as great extensibility and software/addons updates
