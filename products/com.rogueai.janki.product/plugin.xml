@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="JAnki"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="clearPersistedState"
+               value="true">
+         </property>
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/com.rogueai.janki.ui/css/default.css">
+         </property>
+         <property
+               name="applicationXMI"
+               value="com.rogueai.janki.ui/Application.e4xmi">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
