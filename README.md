@@ -2,7 +2,7 @@ JAnki
 =====
 
 JAnki aims to be a more user friendly implementation of the popular SRS Anki.
-Some of the feature the will be implemented include:
+Some of the feature that we'd like to implement include:
 - a uniform, accessible UI, with more keyboard control and less usage of modal popups
 - enhanced card editor with autocomplete and/or basic UI editor
 - improved search UI
