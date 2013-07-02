@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_JsvekOKMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ide.application" bindingContexts="_JswFoOKMEeKShMc_7QWLYg">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_JsvekeKMEeKShMc_7QWLYg" label="janki" width="500" height="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_JswFt-KMEeKShMc_7QWLYg">
+      <children xsi:type="advanced:Perspective" xmi:id="_JswFuOKMEeKShMc_7QWLYg">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_JswFueKMEeKShMc_7QWLYg">
+          <children xsi:type="basic:PartStack" xmi:id="_JswFuuKMEeKShMc_7QWLYg">
+            <children xsi:type="basic:Part" xmi:id="_mHFtYOKOEeKShMc_7QWLYg" elementId="com.rogueai.janki.ui.parts.View" contributionURI="bundleclass://com.rogueai.janki.ui/com.rogueai.janki.ui.parts.JAnkiPart" label="Test View" iconURI="">
+              <tags>View</tags>
+              <tags>categoryTag:org.eclipse.pde.ui</tags>
+              <menus xmi:id="_mHFtYeKOEeKShMc_7QWLYg" elementId="org.eclipse.pde.ui.PluginsView">
+                <tags>ViewMenu</tags>
+              </menus>
+              <toolbar xmi:id="_mHFtYuKOEeKShMc_7QWLYg" elementId="org.eclipse.pde.ui.PluginsView"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_JswFsOKMEeKShMc_7QWLYg" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_JswFseKMEeKShMc_7QWLYg" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_JswFsuKMEeKShMc_7QWLYg" label="Open" iconURI="platform:/plugin/com.rogueai.janki.ui/icons/sample.gif" command="_JswFp-KMEeKShMc_7QWLYg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_JswFs-KMEeKShMc_7QWLYg" label="Save" iconURI="platform:/plugin/com.rogueai.janki.ui/icons/save_edit.gif" command="_JswFquKMEeKShMc_7QWLYg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_JswFtOKMEeKShMc_7QWLYg" label="Quit" command="_JswFo-KMEeKShMc_7QWLYg"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_JswFteKMEeKShMc_7QWLYg" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_JswFtuKMEeKShMc_7QWLYg" label="About" command="_JswFreKMEeKShMc_7QWLYg"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_JswFvOKMEeKShMc_7QWLYg">
+      <children xsi:type="menu:ToolBar" xmi:id="_JswFveKMEeKShMc_7QWLYg" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_JswFvuKMEeKShMc_7QWLYg" iconURI="platform:/plugin/com.rogueai.janki.ui/icons/sample.gif" command="_JswFp-KMEeKShMc_7QWLYg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_JswFv-KMEeKShMc_7QWLYg" iconURI="platform:/plugin/com.rogueai.janki.ui/icons/save_edit.gif" command="_JswFquKMEeKShMc_7QWLYg"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_JswFpOKMEeKShMc_7QWLYg" elementId="janki.handler.quitCommand" contributionURI="bundleclass://com.rogueai.janki.ui/com.rogueai.janki.ui.handlers.QuitHandler" command="_JswFo-KMEeKShMc_7QWLYg"/>
+  <handlers xmi:id="_JswFqOKMEeKShMc_7QWLYg" elementId="janki.handler.openCommand" contributionURI="bundleclass://com.rogueai.janki.ui/com.rogueai.janki.ui.handlers.OpenHandler" command="_JswFp-KMEeKShMc_7QWLYg"/>
+  <handlers xmi:id="_JswFq-KMEeKShMc_7QWLYg" elementId="janki.handler.saveCommand" contributionURI="bundleclass://com.rogueai.janki.ui/com.rogueai.janki.ui.handlers.SaveHandler" command="_JswFquKMEeKShMc_7QWLYg"/>
+  <handlers xmi:id="_JswFruKMEeKShMc_7QWLYg" elementId="janki.handler.aboutCommand" contributionURI="bundleclass://com.rogueai.janki.ui/com.rogueai.janki.ui.handlers.AboutHandler" command="_JswFreKMEeKShMc_7QWLYg"/>
+  <bindingTables xmi:id="_JswFpeKMEeKShMc_7QWLYg" bindingContext="_JswFoOKMEeKShMc_7QWLYg">
+    <bindings xmi:id="_JswFpuKMEeKShMc_7QWLYg" keySequence="M1+Q" command="_JswFo-KMEeKShMc_7QWLYg"/>
+    <bindings xmi:id="_JswFqeKMEeKShMc_7QWLYg" keySequence="M1+O" command="_JswFp-KMEeKShMc_7QWLYg"/>
+    <bindings xmi:id="_JswFrOKMEeKShMc_7QWLYg" keySequence="M1+S" command="_JswFquKMEeKShMc_7QWLYg"/>
+    <bindings xmi:id="_JswFr-KMEeKShMc_7QWLYg" keySequence="M1+A" command="_JswFreKMEeKShMc_7QWLYg"/>
+  </bindingTables>
+  <rootContext xmi:id="_JswFoOKMEeKShMc_7QWLYg" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_JswFoeKMEeKShMc_7QWLYg" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_JswFouKMEeKShMc_7QWLYg" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_JswFo-KMEeKShMc_7QWLYg" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_JswFp-KMEeKShMc_7QWLYg" elementId="janki.open" commandName="openCommand"/>
+  <commands xmi:id="_JswFquKMEeKShMc_7QWLYg" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
+  <commands xmi:id="_JswFreKMEeKShMc_7QWLYg" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <addons xmi:id="_JsvekuKMEeKShMc_7QWLYg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_Jsvek-KMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_JsvelOKMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_JsveleKMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_JsveluKMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_Jsvel-KMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_JsvemOKMEeKShMc_7QWLYg" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

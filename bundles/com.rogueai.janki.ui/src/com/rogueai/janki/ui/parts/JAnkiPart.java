@@ -1,7 +1,9 @@
-package com.rogueai.janki.ui.views;
+package com.rogueai.janki.ui.parts;
 
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -9,7 +11,6 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.part.ViewPart;
 
 import com.rogueai.janki.core.persistence.dao.factory.DaoFactory;
 import com.rogueai.janki.core.persistence.entity.Card;
@@ -23,14 +24,14 @@ import com.rogueai.janki.core.persistence.entity.Revlog;
  * @author matsuleode
  * 
  */
-public class View extends ViewPart {
+public class JAnkiPart {
 
-	@Override
+	@PostConstruct
 	public void createPartControl(Composite parent) {
-		
+
 		Composite container = new Composite(parent, SWT.BORDER);
 		container.setLayout(GridLayoutFactory.swtDefaults().numColumns(5).create());
-		
+
 		createButtons(container);
 	}
 
@@ -104,11 +105,6 @@ public class View extends ViewPart {
 				}
 			}
 		});
-	}
-
-	@Override
-	public void setFocus() {
-
 	}
 
 }
