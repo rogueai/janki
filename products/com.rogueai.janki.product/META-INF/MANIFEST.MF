@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.rogueai.janki.product
+Bundle-SymbolicName: com.rogueai.janki.product;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: RogueAI
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.0"
