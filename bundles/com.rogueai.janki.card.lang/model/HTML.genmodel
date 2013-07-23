@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.rogueai.janki.card.lang/src" modelPluginID="com.rogueai.janki.card.lang"
+    modelName="HTML" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>HTML.ecore</foreignModel>
+  <genPackages prefix="Html" basePackage="com.rogueai.janki.lang" disposableProviderFactory="true"
+      ecorePackage="HTML.ecore#/">
+    <genDataTypes ecoreDataType="HTML.ecore#//String"/>
+    <genDataTypes ecoreDataType="HTML.ecore#//Integer"/>
+    <genDataTypes ecoreDataType="HTML.ecore#//Boolean"/>
+    <genClasses ecoreClass="HTML.ecore#//HTML">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//HTML/head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//HTML/body"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//HTMLElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//HTMLElement/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//HTMLElement/children"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//HTMLElement/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//HEAD">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//HEAD/headElements"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//HEAD/html"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HTML.ecore#//HEADElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//HEADElement/head"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//LINK">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//LINK/rel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//LINK/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//LINK/ahref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//LINK/type"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//TITLE"/>
+    <genClasses ecoreClass="HTML.ecore#//BODY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BODY/background"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BODY/bgcolor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BODY/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BODY/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BODY/alink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BODY/vlink"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//BODY/bodyElements"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//BODY/html"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HTML.ecore#//BODYElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//BODYElement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//H1"/>
+    <genClasses ecoreClass="HTML.ecore#//H2"/>
+    <genClasses ecoreClass="HTML.ecore#//H3"/>
+    <genClasses ecoreClass="HTML.ecore#//H4"/>
+    <genClasses ecoreClass="HTML.ecore#//EM"/>
+    <genClasses ecoreClass="HTML.ecore#//STRONG"/>
+    <genClasses ecoreClass="HTML.ecore#//B"/>
+    <genClasses ecoreClass="HTML.ecore#//I"/>
+    <genClasses ecoreClass="HTML.ecore#//TT"/>
+    <genClasses ecoreClass="HTML.ecore#//PRE"/>
+    <genClasses ecoreClass="HTML.ecore#//BIG"/>
+    <genClasses ecoreClass="HTML.ecore#//SMALL"/>
+    <genClasses ecoreClass="HTML.ecore#//SUB"/>
+    <genClasses ecoreClass="HTML.ecore#//SUP"/>
+    <genClasses ecoreClass="HTML.ecore#//STRIKE"/>
+    <genClasses ecoreClass="HTML.ecore#//FONT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FONT/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FONT/face"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FONT/size"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//IMG">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/src"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/alt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/align"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/vspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/hspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/ismap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/usemap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//IMG/border"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//BR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//BR/clear"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//MAP"/>
+    <genClasses ecoreClass="HTML.ecore#//AREA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//AREA/shape"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//AREA/coords"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//AREA/ahref"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//STYLE"/>
+    <genClasses ecoreClass="HTML.ecore#//EMBED">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/src"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/align"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/vspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/hspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//EMBED/border"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//NOEMBED"/>
+    <genClasses ecoreClass="HTML.ecore#//SPAN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//SPAN/style"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//A">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//A/ahref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//A/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//A/id"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//DIV">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//DIV/align"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//P"/>
+    <genClasses image="false" ecoreClass="HTML.ecore#//TABLEElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TABLEElement/bgcolor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TABLEElement/background"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//TABLE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TABLE/border"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TABLE/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TABLE/cellspacing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TABLE/cellpadding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//TABLE/trs"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//TR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TR/valign"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TR/align"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//TR/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HTML.ecore#//TR/tds"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//TD">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TD/colspan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TD/rowspan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TD/valign"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TD/align"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TD/width"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference HTML.ecore#//TD/tr"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//TH"/>
+    <genClasses ecoreClass="HTML.ecore#//FORM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FORM/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FORM/method"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//INPUT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/align"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/maxlength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/checked"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/src"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/inputValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//INPUT/type"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//TEXTAREA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TEXTAREA/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TEXTAREA/rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//TEXTAREA/cols"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//SELECT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//SELECT/multiple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//SELECT/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//SELECT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//OPTION">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OPTION/selected"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OPTION/optionValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HTML.ecore#//ListElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//ListElement/type"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//OL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OL/start"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//UL"/>
+    <genClasses ecoreClass="HTML.ecore#//LI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//LI/liValue"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//DL"/>
+    <genClasses ecoreClass="HTML.ecore#//DT"/>
+    <genClasses ecoreClass="HTML.ecore#//DD"/>
+    <genClasses ecoreClass="HTML.ecore#//APPLET">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//APPLET/applet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//APPLET/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//APPLET/src"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//APPLET/align"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//APPLET/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//APPLET/height"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//PARAM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//PARAM/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//PARAM/paramValue"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//OBJECT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OBJECT/classid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OBJECT/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OBJECT/data"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OBJECT/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//OBJECT/standby"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//FRAMESET">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAMESET/rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAMESET/cols"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAMESET/framespacing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAMESET/frameborder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAMESET/border"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//FRAME">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAME/src"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAME/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAME/marginwidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAME/marginheight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAME/scrolling"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HTML.ecore#//FRAME/noresize"/>
+    </genClasses>
+    <genClasses ecoreClass="HTML.ecore#//NOFRAME"/>
+    <genClasses ecoreClass="HTML.ecore#//IFRAME"/>
+  </genPackages>
+</genmodel:GenModel>

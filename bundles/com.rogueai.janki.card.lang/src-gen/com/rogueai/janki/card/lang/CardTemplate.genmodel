@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.rogueai.janki.card.lang/src-gen" editDirectory="/com.rogueai.janki.card.lang.edit/src"
+    editorDirectory="/com.rogueai.janki.card.lang.editor/src" modelPluginID="com.rogueai.janki.card.lang"
+    forceOverwrite="true" modelName="CardTemplate" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="com.rogueai.janki.card.lang.edit"
+    editorPluginID="com.rogueai.janki.card.lang.editor" runtimeVersion="2.9">
+  <genPackages prefix="CardTemplate" basePackage="com.rogueai.janki.card.lang" disposableProviderFactory="true"
+      fileExtensions="ct" ecorePackage="CardTemplate.ecore#/">
+    <genClasses ecoreClass="CardTemplate.ecore#//Html">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CardTemplate.ecore#//Html/content"/>
+    </genClasses>
+    <genClasses ecoreClass="CardTemplate.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CardTemplate.ecore#//Tag/startTagName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CardTemplate.ecore#//Tag/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CardTemplate.ecore#//Tag/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CardTemplate.ecore#//Tag/endTagName"/>
+    </genClasses>
+    <genClasses ecoreClass="CardTemplate.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CardTemplate.ecore#//Attribute/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CardTemplate.ecore#//Attribute/attributeValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

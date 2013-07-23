@@ -1,0 +1,23 @@
+grammar com.rogueai.janki.card.lang.CardTemplate with org.eclipse.xtext.common.Terminals
+
+generate cardTemplate "http://www.rogueai.com/janki/card/lang/CardTemplate"
+
+Html:
+	'<html>'
+	content+=Tag*
+	'</html>';
+
+Tag:
+	'<'
+	(startTagName=Type attributes+=Attribute* '>'
+	children+=Tag*
+	'</' endTagName=Type '>') |
+	(startTagName=Type attributes+=Attribute* endTagName='' '/>');
+
+Attribute:
+	attributeName=ID '=' attributeValue=STRING;
+
+Type:
+	ID (':' ID*)?;
+
+
